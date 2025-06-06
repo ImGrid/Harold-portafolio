@@ -18,6 +18,20 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     target: 'esnext',
-    minify: 'esbuild'
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
+  
+  server: {
+    host: true,
+    port: 3000,
+  },
+  
+  preview: {
+    port: 4173,
   }
 })
