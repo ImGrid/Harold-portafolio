@@ -6,7 +6,7 @@ import { fileURLToPath, URL } from 'node:url'
 export default defineConfig({
   plugins: [vue()],
   
-  base: process.env.NODE_ENV === 'production' ? '/Harold-portafolio/' : '/',
+  base: '/Harold-portafolio/',
   
   resolve: {
     alias: {
