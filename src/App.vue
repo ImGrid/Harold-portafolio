@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { personalInfo, projects, skills} from '@/data/personal'
 import { useDarkMode } from '@/composables/useDarkMode'
 
-// Modo oscuro
+const getAssetUrl = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/'
+  return `${base}${path}`.replace(/\/+/g, '/')
+}
+
+// URL del CV
+const cvUrl = computed(() => getAssetUrl('harold-ponce-cv.pdf'))
 const { isDark, toggleDarkMode } = useDarkMode()
 
 // Navegación móvil
@@ -233,8 +239,8 @@ onMounted(() => {
                   </a>
                   
                   <a 
-                    href="/harold-ponce-cv.pdf"
-                    download
+                    :href="cvUrl"
+                    download="Harold-Ponce-CV.pdf"
                     class="flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 dark:from-emerald-500 dark:to-emerald-600 dark:hover:from-emerald-400 dark:hover:to-emerald-500 text-white px-6 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-green-600/30 dark:shadow-emerald-500/30"
                   >
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
