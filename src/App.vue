@@ -49,7 +49,6 @@ onMounted(() => {
     },
     { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' }
   )
-
   sections.forEach((sectionId) => {
     const section = document.getElementById(sectionId)
     if (section) observer.observe(section)
